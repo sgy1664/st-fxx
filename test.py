@@ -6,18 +6,13 @@ import time
 
 def run():
     
-    accounts = {'steve':'yangzk960324',
-                '王争争':'wangzhengzheng',
-                '孙文丽':'sunwenli',
-                '房潇潇':'fangxiaoxiao',
-                'test':'test'}
+    accounts = {'fxx':'fangxiaoxiao'
+            }
     #username = var_user.text_input('用户名')
     
     st.title('Label Tool')
     labeler_name = st.selectbox(
-        'your name',
-        ('steve', '王争争','孙文丽','房潇潇','test')
-    )
+        'your name',['fxx'])
     passcode = st.text_input('密码', type="password")
     #labeler_name = st.text_input("your id")
     ln = st.session_state.name = labeler_name
@@ -27,21 +22,21 @@ def run():
     optiopn_list = []
     unlabeled_list = []
     labeled_list = []
-    if ln == 'steve':
-        folder = 'images_steve'
-        file = 'out_steve.csv'
-    elif ln == '王争争':
-        folder = 'images_qiqi'
-        file = 'out_qiqi.csv'
-    elif ln == '孙文丽':
-        folder = 'images_eric'
-        file = 'out_eric.csv'
-    elif ln == '房潇潇':
+    if ln == 'fxx':
         folder = 'images_charlie'
         file = 'out_charlie.csv'
-    elif ln == 'test':
-        folder = 'images_pengfei'
-        file = 'out_pengfei.csv'
+    # elif ln == '王争争':
+    #     folder = 'images_qiqi'
+    #     file = 'out_qiqi.csv'
+    # elif ln == '孙文丽':
+    #     folder = 'images_eric'
+    #     file = 'out_eric.csv'
+    # elif ln == '房潇潇':
+    #     folder = 'images_charlie'
+    #     file = 'out_charlie.csv'
+    # elif ln == 'test':
+    #     folder = 'images_pengfei'
+    #     file = 'out_pengfei.csv'
     if accounts.get(labeler_name) == passcode:
         list_of_files = sorted( filter( lambda x: os.path.isfile(os.path.join(folder, x)),
                             os.listdir(folder) ) )
